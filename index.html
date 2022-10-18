@@ -1,6 +1,6 @@
  <!DOCTYPE HTML>
 <html>
-	<head>
+    <head>
       <title>Hello</title>
     </head>
 
@@ -11,13 +11,41 @@
 </html>
 
 <script>
+    var Status = { }
+    Status.data = function() {
+                     var result = { }
+                     result.current = 0
+                     result.list = ["Single", "Married", "Divorced"]
+                     return result
+                   }
+    Status.methods = { }
+    Status.template = `<button @click="gonext()">{{ list[current] }}</button>`
+    Status.methods.gonext = function() {
+                      this.current++
+                      if (this.current > 2) this.current = 0
+                    }
+    Vue.createApp(Status).mount("#main")
+
+    var Counter = { }
+    Counter.data = function() {
+                      var result = { }
+                      result.current = 0
+                      return result
+                   }
+    Counter.template = `<button @click="next()">Value {{current}}</button>`
+    Counter.methods = { }
+    Counter.methods.next = function() {
+                               this.current++
+                           }
+    // Vue.createApp(Counter).mount("#main")
+
     var Sample = { }
-    Sample.template = "<button @Click='show()'>Show</button>"
+    Sample.template = "<button @click='show()'>Show</button>"
     Sample.methods = { }
     Sample.methods.show = function() {
                               alert("I love you")
                           }
-    Vue.createApp(Sample).mount("#main")
+    // Vue.createApp(Sample).mount("#main")
 
     var App = { } // empty object
     App.template = `<button>Welcome</button>`
