@@ -1,0 +1,25 @@
+ <!DOCTYPE HTML>
+<html>
+	<head>
+      <title>Hello</title>
+    </head>
+
+    <body>
+	<div id="main">...</div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </body>
+</html>
+
+<script>
+    var Sample = { }
+    Sample.template = "<button @Click='show()'>Show</button>"
+    Sample.methods = { }
+    Sample.methods.show = function() {
+                              alert("I love you")
+                          }
+    Vue.createApp(Sample).mount("#main")
+
+    var App = { } // empty object
+    App.template = `<button>Welcome</button>`
+    // Vue.createApp(App).mount("#main")
+</script>
