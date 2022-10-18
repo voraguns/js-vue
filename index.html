@@ -1,4 +1,4 @@
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
     <head>
       <title>Hello</title>
@@ -11,6 +11,22 @@
 </html>
 
 <script>
+    var LoveHate = { }
+    LoveHate.data = function() {
+                      var model = { }
+                      model.list = [ ]
+                      return model
+                    }
+     LoveHate.template = `<button @click="add('Love')">Love</button>
+                          <button @click="add('Hate')">Hate</button>
+                          <p v-for="e in list">{{e}}</p>`
+     LoveHate.methods = { }
+     LoveHate.methods.add = function (x) {	
+                                this.list.push(x)    
+                             }
+     Vue.createApp(LoveHate).mount("#main")
+
+
     var Status = { }
     Status.data = function() {
                      var result = { }
@@ -24,7 +40,7 @@
                       this.current++
                       if (this.current > 2) this.current = 0
                     }
-    Vue.createApp(Status).mount("#main")
+    // Vue.createApp(Status).mount("#main")
 
     var Counter = { }
     Counter.data = function() {
